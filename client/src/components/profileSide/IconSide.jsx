@@ -30,7 +30,7 @@ const IconSide = () => {
         </Link>
       </p>
       <p>
-        <Link to="../home">
+        <Link to="../chat">
           <AiOutlineMessage size={30} style={{ color: "#000" }} />
         </Link>
       </p>

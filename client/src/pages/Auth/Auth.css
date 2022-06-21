@@ -7,24 +7,41 @@
   position: relative;
 }
 
+.AuthLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 4rem;
+  position: relative;
+}
+
 .Auth > div {
-  /* display: flex; */
   align-items: center;
   justify-content: center;
 }
 
-
+.AuthLogin > div {
+  align-items: center;
+  justify-content: center;
+}
 
 /* left side */
 .a-left{
     gap: 1rem;
 }
 
-/* .a-left > img {
-  width: 8rem;
-  height: 8rem;
+.a-left>h6 {
+  font-size: 0.85rem;
+}
 
-} */
+.a-leftLogin {
+  gap: 1rem;
+}
+
+.a-leftLogin >h6 {
+  font-size: 0.85rem;
+}
 
 .Webname > h1 {
     font-size: 3rem;
@@ -45,15 +62,9 @@
     -moz-text-fill-color: transparent;
 }
 
-.a-left>h6{
-    font-size: 0.85rem;
-}
-
 
 
 /* right side */
-
-
 .authForm{
     background-color: var(--cardColor);
     border-radius: 1rem;
@@ -64,4 +75,36 @@
     width: 100%;
     align-items: center;
     justify-content: center;
+}
+
+/* Media Screen */
+
+@media screen and (min-width: 200px)and (max-width: 672.99px) {
+  .a-leftLogin {
+    margin-top: 90px;
+    display: grid;
+  }
+
+  .AuthLogin {
+    display: block;
+  }
+
+  .a-rightLogin{
+    display: grid;
+  }
+}
+
+@media screen and (min-width: 200px)and (max-width: 769.99px) {
+  .a-left {
+    margin-top: 90px;
+    display: grid;
+  }
+
+  .Auth {
+    display: block;
+  }
+
+  .a-right {
+    display: grid;
+  }
 }
