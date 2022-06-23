@@ -61,14 +61,17 @@ const PostShare = () => {
   };
   return (
     <div className="PostShare">
-      <img
-        src={
-          user.profilePicture
-            ? serverPublic + user.profilePicture
-            : serverPublic + "defaultProfile.png"
-        }
-        alt="Profile"
-      />
+      <a href={`/profile/${user._id}`}>
+        <img
+          src={
+            user.profilePicture
+              ? serverPublic + user.profilePicture
+              : serverPublic + "defaultProfile.png"
+          }
+          alt="Profile"
+        />
+      </a>
+
       <div>
         <input
           type="text"
