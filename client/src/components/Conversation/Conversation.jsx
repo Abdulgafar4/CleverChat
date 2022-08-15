@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getUser } from "../../api/UserRequests";
+
 const Conversation = ({ data, currentUser, online }) => {
   const [userData, setUserData] = useState(null);
   const dispatch = useDispatch();
+
+  // console.log({ data });
+  // console.log({ currentUser });
 
   useEffect(() => {
     const userId = data.members.find((id) => id !== currentUser);
@@ -21,6 +25,8 @@ const Conversation = ({ data, currentUser, online }) => {
     getUserData();
     //eslint-disable-next-line
   }, []);
+
+  // console.log({ userData });
   return (
     <>
       <div className="follower conversation">

@@ -5,6 +5,7 @@ import { getUser } from "../../api/UserRequests";
 import "./ChatBox.css";
 import { format } from "timeago.js";
 import InputEmoji from "react-input-emoji";
+import Welcom from "./Welcom";
 
 const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
   const [userData, setUserData] = useState(null);
@@ -49,6 +50,8 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
     scroll.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  // console.log(chat);
+
   // Send Message
   const handleSend = async (e) => {
     e.preventDefault();
@@ -57,8 +60,8 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
       text: newMessage,
       chatId: chat._id,
     };
-    const receiverId = chat.members.find((id) => id !== currentUser);
-    // send message to socket server
+    const receiverId = chat?.members?.find((id) => id !== currentUser);
+    // send message to socketid server
     setSendMessage({ ...message, receiverId });
     // send message to database
     try {
@@ -81,6 +84,8 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
 
   const scroll = useRef();
   const imageRef = useRef();
+
+  console.log({ currentUser });
   return (
     <>
       <div className="ChatBox-container">
@@ -152,9 +157,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
             </div>{" "}
           </>
         ) : (
-          <span className="chatbox-empty-message">
-            Welcome tap on a chat to start conversation...
-          </span>
+          <Welcom data={userData} />
         )}
       </div>
     </>

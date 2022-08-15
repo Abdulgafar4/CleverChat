@@ -21,8 +21,6 @@ const Chat = () => {
   const [sendMessage, setSendMessage] = useState(null);
   const [receivedMessage, setReceivedMessage] = useState(null);
 
-  // Get all user in chat
-
   // Get the chat in chat section
   useEffect(() => {
     const getChats = async () => {
@@ -35,8 +33,6 @@ const Chat = () => {
     };
     getChats();
   }, [user._id]);
-
-  console.log(chats);
 
   // Connect to Socket.io
   useEffect(() => {
@@ -68,7 +64,6 @@ const Chat = () => {
     return online ? true : false;
   };
 
-  // console.log(chats);
   return (
     <div className="Chat">
       {/* Left Side */}
